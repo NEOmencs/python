@@ -7,7 +7,7 @@ import shutil
 video_file_path = "C:\\NEO\\The Big Bang Theory\\The Big Bang Theory Season 7"
 #subtitles_library="C:\\NEO\\The Big Bang Theory\\The Big Bang Theory Season 1\\the-big-bang-theory-first-season_HI_english-1175854"
 video_file_extension = ['.avi','.mkv','.mp4']
-want_to_rename_subtitles ='no'
+want_to_rename_subtitles ='yes'
 ######################################################################################################################################
 
 video_file_list = []
@@ -48,4 +48,5 @@ if want_to_rename_subtitles != "yes":
 
 if (len(subtitles_list) == len(video_file_list) and want_to_rename_subtitles=="yes"):
 	for serial in range(len(subtitles_list)):
-		shutil.move(subtitles_list[serial],os.path.join(video_file_path,(os.path.split(video_file_list[serial])[1])).split('.')[0]+".srt")
+		# shutil.move(subtitles_list[serial],os.path.join(video_file_path,(os.path.split(video_file_list[serial])[1])).split('.')[0]+".srt")
+		shutil.move(subtitles_list[serial],os.path.join(video_file_path,video_file_list[serial].replace(video_file_list[serial].split('.')[-1],"")+"srt"))
